@@ -25,7 +25,7 @@ public class Starter extends AppCompatActivity
             @Override
             public void run()
             {
-                Intent intent = new Intent(Starter.this, SignIn.class);
+                Intent intent = new Intent(Starter.this, SignUp.class);
                 startActivity(intent);
             }
         };

@@ -19,79 +19,101 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/submitReg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Регистрация"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/lastName"
-        app:layout_constraintStart_toStartOf="@+id/lastName"
-        app:layout_constraintTop_toBottomOf="@+id/lastName" />
-
     <EditText
         android:id="@+id/emailReg"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="120dp"
+        android:background="@android:drawable/bottom_bar"
         android:ems="10"
+        android:gravity="center"
         android:hint="email"
         android:inputType="textPersonName"
+        android:textSize="24"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/passwordReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="password"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/emailReg"
-        app:layout_constraintStart_toStartOf="@+id/emailReg"
-        app:layout_constraintTop_toBottomOf="@+id/emailReg" />
-
-    <EditText
         android:id="@+id/repeat"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:background="@android:drawable/bottom_bar"
         android:ems="10"
+        android:gravity="center"
         android:hint="password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
+        android:textSize="24"
         app:layout_constraintEnd_toEndOf="@+id/passwordReg"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/passwordReg"
         app:layout_constraintTop_toBottomOf="@+id/passwordReg" />
 
     <EditText
         android:id="@+id/firstName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:background="@android:drawable/bottom_bar"
         android:ems="10"
+        android:gravity="center"
         android:hint="first name"
         android:inputType="textPersonName"
+        android:textSize="24"
         app:layout_constraintEnd_toEndOf="@+id/repeat"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/repeat"
         app:layout_constraintTop_toBottomOf="@+id/repeat" />
 
     <EditText
         android:id="@+id/lastName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:background="@android:drawable/bottom_bar"
         android:ems="10"
+        android:gravity="center"
         android:hint="last name"
         android:inputType="textPersonName"
+        android:textSize="24"
         app:layout_constraintEnd_toEndOf="@+id/firstName"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/firstName"
         app:layout_constraintTop_toBottomOf="@+id/firstName" />
+
+    <Button
+        android:id="@+id/submitReg"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:drawable/bottom_bar"
+        android:gravity="center"
+        android:text="Регистрация"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/lastName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lastName"
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
+
+    <EditText
+        android:id="@+id/passwordReg"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:drawable/bottom_bar"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textSize="24"
+        app:layout_constraintEnd_toEndOf="@+id/emailReg"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/emailReg"
+        app:layout_constraintTop_toBottomOf="@+id/emailReg" />
 
     <TextView
         android:id="@+id/changereg"

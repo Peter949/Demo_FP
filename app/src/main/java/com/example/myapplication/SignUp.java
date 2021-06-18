@@ -2,8 +2,13 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +30,9 @@ public class SignUp extends AppCompatActivity {
     private EditText email, password, repeat, firstName, lastName;
     private Button submit;
     private TextView textView;
+    private String error;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,46 +59,74 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 if(email.getText().toString().equals("") || password.getText().toString().equals("") || repeat.getText().toString().equals("") || firstName.getText().toString().equals("") || lastName.getText().toString().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "Заполните все поля!", Toast.LENGTH_SHORT).show();
+                    error = "Заполните все поля";
+                    Dilog(SignUp.this);
 
                 }
                 else {
                     if (email.getText().toString().equals(repeat.getText().toString())) {
                         reg();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Пароли не соотвествуют!", Toast.LENGTH_SHORT).show();
+                        error = "Пароли не соответствуют";
+                        Dilog(SignUp.this);
+
                     }
                 }
             }
         });
     }
+    public void Dilog(Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Ошибка")
+                .setMessage(error)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                    }
+                });
+        builder.create().show();
+    }
+    private boolean emailVer(String email)
+    {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
     private void reg()
     {
-        ParamSignUp paramSignUp = new ParamSignUp();
-        paramSignUp.setEmail(email.getText().toString());
-        paramSignUp.setPassword(password.getText().toString());
-        paramSignUp.setFirstName(firstName.getText().toString());
-        paramSignUp.setLastName(lastName.getText().toString());
-        Call<ParamSignUp> call = api.doSignUp(paramSignUp);
-        call.enqueue(new Callback<ParamSignUp>() {
-            @Override
-            public void onResponse(Call<ParamSignUp> call, Response<ParamSignUp> response)
-            {
-                if(response.isSuccessful())
+        if(!emailVer(email.getText().toString()))
+        {
+            error = "Не верная почта";
+            Dilog(SignUp.this);
+
+        }
+        else
+        {
+            ParamSignUp paramSignUp = new ParamSignUp();
+            paramSignUp.setEmail(email.getText().toString());
+            paramSignUp.setPassword(password.getText().toString());
+            paramSignUp.setFirstName(firstName.getText().toString());
+            paramSignUp.setLastName(lastName.getText().toString());
+            Call<ParamSignUp> call = api.doSignUp(paramSignUp);
+            call.enqueue(new Callback<ParamSignUp>() {
+                @Override
+                public void onResponse(Call<ParamSignUp> call, Response<ParamSignUp> response)
+                {
+                    if(response.isSuccessful())
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ParamSignUp> call, Throwable t)
                 {
 
                 }
-                else
-                {
+            });
+        }
 
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ParamSignUp> call, Throwable t)
-            {
-
-            }
-        });
     }
 }
