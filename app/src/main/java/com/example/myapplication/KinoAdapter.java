@@ -36,8 +36,7 @@ public class KinoAdapter extends RecyclerView.Adapter<KinoAdapter.ViewHolder>
     public void onBindViewHolder(KinoAdapter.ViewHolder holder, int position)
     {
         ParamKino param = kinos.get(position);
-        holder.text.setText(param.getName() + "\n" + param.getDescription());
-        Picasso.with(context).load("http://cinema.areas.su/up/images/" + param.getPoster()).resize(700, 800).into(holder.image);
+        Picasso.with(context).load("http://cinema.areas.su/up/images/" + param.getPoster()).resize(800, 1000).into(holder.image);
     }
 
     @Override
@@ -52,12 +51,10 @@ public class KinoAdapter extends RecyclerView.Adapter<KinoAdapter.ViewHolder>
 
     class ViewHolder extends RecyclerView.ViewHolder
     {
-        private TextView text;
         private ImageView image;
         ViewHolder(View view)
         {
             super(view);
-            text = view.findViewById(R.id.textView);
             image = view.findViewById(R.id.imageView);
         }
     }
