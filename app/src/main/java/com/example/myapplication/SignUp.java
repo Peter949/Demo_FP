@@ -63,12 +63,14 @@ public class SignUp extends AppCompatActivity {
                     Dilog(SignUp.this);
 
                 }
-                else {
-                    if (email.getText().toString().equals(repeat.getText().toString())) {
-                        reg();
-                    } else {
+                else
+                    {
+                    if (!password.getText().toString().equals(repeat.getText().toString())) {
+
                         error = "Пароли не соответствуют";
                         Dilog(SignUp.this);
+                    } else {
+                        reg();
 
                     }
                 }
