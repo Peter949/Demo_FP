@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity
     private Retrofit retrofit;
     private RecyclerView rec;
     private List<ParamKino> kinos;
+    private String l;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
