@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignIn extends AppCompatActivity
 {
-    private TextView errorText;
+    private TextView errorText, change;
     private EditText email, password;
     private Button submit, submitError;
     private ConstraintLayout errorLayout;
@@ -41,6 +41,14 @@ public class SignIn extends AppCompatActivity
         submit = findViewById(R.id.submitAuth);
         submitError = findViewById(R.id.submitError1);
         errorLayout = findViewById(R.id.error1);
+        change = findViewById(R.id.changeAuth);
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignIn.this, SignUp.class);
+                startActivity(intent);
+            }
+        });
         submitError.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -55,7 +63,7 @@ public class SignIn extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                reg();
+                in();
             }
         });
     }
@@ -63,7 +71,7 @@ public class SignIn extends AppCompatActivity
     {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
-    private void reg()
+    private void in()
     {
         if(email.getText().toString().equals("") || password.getText().toString().equals(""))
         {

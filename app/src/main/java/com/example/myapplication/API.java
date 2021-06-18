@@ -16,4 +16,7 @@ public interface API
 
     @GET("movies?filter=new")
     Call<List<ParamKino>> getKino();
+
+    @POST("auth/register")
+    Call<ParamSignUp> doSignUp(@Body ParamSignUp paramSignUp);
 }
